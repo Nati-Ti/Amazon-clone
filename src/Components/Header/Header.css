@@ -1,0 +1,191 @@
+
+.Header{
+    display: flex;
+    height: 70px;
+    border: none;
+    background-color: #131921;
+    justify-content: space-between;
+}
+
+.Header__logo img{
+    width: 113px;
+    height: 35px;
+    margin: 2px 5px 1px 10px;
+    padding: 1px 8px 0px 6px;
+    
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.Header--textButton__wrapper{
+    display: flex;
+    width: auto;
+    max-height: 60px;
+    margin: 0px 2px 2px 0px;
+    padding: 10px 9px;
+    color: #D6D6D6;
+    font-family: 'Amazon Ember', Arial, sans-serif;
+
+    
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.Header__icon{
+    margin-top: 13px;
+    color: white;
+}
+
+.Header__smallText{
+    font-size: 12px;
+    color: #CCCCCC;
+    font-size: small;
+}
+
+.Header__largeText{
+    font-size: 14px;
+    font-weight: 200;
+    color: #FFFFFF;
+    padding: 0px 0px 1px;
+    font-size: medium;
+}
+
+.Header--searchBar{
+    display: flex;
+    color: #0F1111;
+    width: auto;
+    min-width: 45%;
+    margin: 0px 10px;
+    padding: 10px 4px 10px 3px;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.SearchBar__buttonSelect{
+    height: 47px;
+    background-color: #e6e6e6;
+    border: 1px;
+    padding: 0px 0px 0px 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+}
+
+.searchBar__inputParent{
+    width: 90%;
+}
+
+.searchBar__input{
+    width: 100%;
+    /* flex-grow: 3; */
+    height: 30px;
+    padding: 7px 10px 10px 0px;
+    border: none;
+}
+
+.SearchBar__searchButton{
+    width: 45px;
+    height: 47.7px;
+    background-color: #f3a847;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+.Header__language{
+    width: auto;
+    height: 45px;
+    padding: 0px 9px 5px 9px;
+    margin-left: 1px;
+    margin-top: 30px;
+}
+
+.language__button{
+    display: flex;
+    font-size: 16px;
+    color: white;
+    background-color: #131921;
+    border: none;
+}
+
+.language__button__logo{   
+    background-color: white;
+    width: 24px;
+    height: 18px;
+    margin: 0px 4px 1px 0px;
+}
+
+/* .language__buttonIcon{
+    width: 8px;
+    height: 4px;
+    margin: 0px;
+} */
+
+.Header--textButton__wrapper2{
+    width: auto;
+    max-height: 50px;
+    color: #D6D6D6;
+    font-size: 14px;
+    margin: 2px 0px 0px 2px;
+    padding: 0px 9px 10px;
+}
+
+.Header--textButton__wrapper3{
+    width: auto;
+    max-height: 50px;
+    color: #D6D6D6;
+    font-size: 14px;
+    margin: 2px 0px 0px 2px;
+    padding: 0px 9px 10px;
+}
+
+.Header__shoppingCart{
+    display: flex;
+    height: 50px;
+    color: white;
+    font-size: 14px;
+    margin: 0px 11px 0px 2px;
+    padding: 0px 9px 11px;
+}
+
+/* .shoppingCart__icon{
+    margin-top: 5px;
+    
+} */
+
+.shoppingCart{
+    display: block;
+    width: 40px;
+}
+
+.shoppingCart__icon{
+    margin-top: -10px;
+}
+
+.shoppingCart p{
+    margin-top: 10px;
+    font-size: 20px;
+    color: #f3a847;
+    text-indent: 12px;
+}
+
+.shoppingCart__text {
+    font-size: 18px;
+    margin-top: 12px;
+    margin-left: -5px;
+}
+
+.Header--textButton__wrapper, .Header--textButton__wrapper2, .Header--textButton__wrapper3{
+    border: 2px solid #131921;
+}
+
+.Header--textButton__wrapper:hover, .Header--textButton__wrapper2:hover, .Header--textButton__wrapper3:hover{
+    border-color: white;
+}

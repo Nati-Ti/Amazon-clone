@@ -1,0 +1,42 @@
+.Header--navBar{
+    background-color: #232f3e;
+    width: 100%;
+    height: 39px;
+    z-index: -1;
+}
+
+.Header--navBar__nav{
+    display: flex;   
+    width: 75%;
+    justify-content: space-between;
+    padding-left: 25px;
+
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.NavLink, .dropDown{
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 400;
+    border: 2px solid #232f3e;
+}
+
+.NavLink:hover{
+    border-color: white;
+}
+
+.dropDown__icon{
+    color: #a7acb2;
+}
+
+.dropDown{
+    display: flex;  
+}
+
+.dropDown:hover{
+    border-color: white;
+}

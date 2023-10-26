@@ -1,0 +1,23 @@
+.Home{
+    width: 100%;
+}
+
+.Home--Banner{
+    width: 100%;
+}
+
+.Banner__img{
+    width: 100%;
+    mask-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.92),rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0));
+    margin-bottom: -250px;
+    z-index: -1;
+}
+
+.productRow{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    margin-bottom: 150px;
+    z-index: 1;
+}

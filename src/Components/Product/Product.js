@@ -1,9 +1,25 @@
 import React from 'react'
 import './Product.css'
+import { useStateValue } from '../Context/stateProvider';
 
 
 function Product({prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}) {
 
+    const [{ cart }, dispatch] = useStateValue();
+
+    const addToCart = () =>{
+        dispatch({
+            type: 'ADD_TO_CART',
+            item: {
+                image: prodImg,
+                description: prodDescr,
+                rating: prodRating,
+                price: prodPrice,
+                view: prodView,
+                offer: prodOffer
+            }
+        });
+    }
 
     function truncate(str) {
         return str?.length > 65 ? str.substr(0, 65) + "..." : str;
@@ -36,7 +52,7 @@ function Product({prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}
                     ${prodPrice}
                 </div>
             </div>
-            <button className='addToCart'>Add to Cart</button>
+            <button onClick={addToCart} className='addToCart'>Add to Cart</button>
         </div>
     )
 }

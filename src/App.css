@@ -2,3 +2,12 @@
     margin: 0px;
     font-family: 'Nunito', sans-serif;
 }
+
+body {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.App {
+    min-width: 1440px;
+}

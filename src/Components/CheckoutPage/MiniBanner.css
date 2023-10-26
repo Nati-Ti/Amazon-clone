@@ -1,0 +1,38 @@
+.MiniBannerPage{ 
+    background-color: #EAEDED;;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.MiniBanner{
+    align-items: center;
+    display: flex;
+    height: 65px;
+    width: 35%;
+    margin: 0px auto;
+    background-color: white;
+}
+
+.miniBanner__image, .miniBanner__text{
+    padding: 10px 14px;
+    height: 45px;
+}
+
+.miniBanner__image img{
+    height: inherit;
+}
+
+.miniBanner__text{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    height: 45px;
+    color: black;
+    font-weight: 600;
+    margin: auto 0px;
+}
+
+.miniBanner__text p:last-child{
+    color: #007185;
+    padding-left: 5px;
+}

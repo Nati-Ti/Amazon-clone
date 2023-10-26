@@ -1,0 +1,123 @@
+.CartItem{
+    display: flex;
+    height: 280px;
+    padding: 15px 0px 15px 15px;
+    border-bottom: 1px solid #E3E6E6 ;
+}
+
+.item__checkBox{
+    height: inherit;
+    width: 24px;
+    margin: 0px 8px 8px 0px;
+    display: flex;
+    align-items: center;
+}
+
+/* #myCheckbox{
+} */
+
+.item__image{
+    height: inherit;
+    width: 180px;
+    margin: 0px 12px 4px 0px;
+}
+
+.item__content{
+    height: inherit;
+    width: 58%;
+    margin: 0px 12px 0px 0px;
+    line-height: 1.5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.item__descr{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.item__rating{
+    display: flex;
+    width: auto;
+    height: 20px;
+    padding: 1px 0px;
+}
+
+.item__price{
+    font-size: 18px;
+}
+
+.bestSeller__badge img{
+    height: 25px;
+
+}
+
+.item__learnMore{
+    font-size: 12px;
+    color: #565959;
+}
+
+.item__learnMore a{
+    text-decoration: none;
+    color: #007185;
+}
+
+.item__size{
+    font-size: 12px;
+    color: #0f1111;
+}
+
+.item__additionals{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__add__links{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__add__links a{
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #007185;
+    margin-top: 7px;
+    height: 18px;
+    padding: 0px 25px;
+    border-left: 1px solid #E3E6E6;
+}
+
+.item__add__links a:first-child{
+    border-left: none;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select select {
+    padding: 8px 10px;
+    width: 80px;
+    font-size: 15px;
+    color: black;
+    border: 1px solid #ccc;
+    background-color: #E3E6E6;
+    border-radius: 8px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M1.41,3.41L6,8l4.59-4.59L12,4l-6,6L0,4L1.41,3.41z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    box-shadow: 0 6px 18px -9px rgba(0, 0, 1, 0.5);
+}
+
+.custom-select select:focus {
+    outline: none;
+}

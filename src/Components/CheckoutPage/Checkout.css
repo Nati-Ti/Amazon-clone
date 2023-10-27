@@ -44,3 +44,11 @@ hr {
 .shoppingCart__header{
     border-bottom: 1px solid #E3E6E6 ;
 }
+
+/* for the bottom subtotal */
+
+.checkout--items--price{
+    display: flex;
+    text-align: right;
+    margin: 20px 20px;
+}

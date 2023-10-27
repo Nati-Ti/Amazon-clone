@@ -4,16 +4,28 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import NavBar from './Components/Nav/NavBar';
 import Checkout from './Components/CheckoutPage/Checkout';
+import Login from './Components/Login/Login';
 
 function App() {
   return (
     <div className="App">
       
-      <Header />  
-      <NavBar />
       <Routes>
-        <Route path='/Checkout' element={<Checkout />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/Checkout' element={
+        <>
+          <Header />  
+          <NavBar />
+          <Checkout />
+        </>
+      } />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/' element={
+        <>
+          <Header />  
+          <NavBar />
+          <Home />
+        </>
+      } />
       </Routes>
       
     </div>

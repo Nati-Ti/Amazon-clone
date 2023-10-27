@@ -50,8 +50,9 @@ function Header() {
                 </button>
             </div>
 
-            <HeaderProp smallText='Hello, sign in' largeText='Account & Lists' order='Header--textButton__wrapper2'/>
-
+            <Link to='/Login' >
+                <HeaderProp smallText='Hello, sign in' largeText='Account & Lists' order='Header--textButton__wrapper2'/>
+            </Link>
             <HeaderProp smallText='Returns' largeText='& Orders' order='Header--textButton__wrapper3'/>
             <Link to='/Checkout' className='Header__shoppingCart' >
             

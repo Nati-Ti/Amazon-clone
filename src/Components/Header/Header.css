@@ -1,3 +1,6 @@
+.Header *{
+    text-decoration: none;
+}
 
 .Header{
     display: flex;
@@ -46,6 +49,7 @@
     font-size: 12px;
     color: #CCCCCC;
     font-size: small;
+    /* text-decoration: none !important; */
 }
 
 .Header__largeText{
@@ -142,6 +146,7 @@
     font-size: 14px;
     margin: 5px 0px;
     padding: 0px 9px 10px;
+    text-decoration: none;
 }
 
 .Header--textButton__wrapper3{

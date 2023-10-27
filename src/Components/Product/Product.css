@@ -68,11 +68,18 @@
 
 .addToCart{
     font-size: 14px;
-    background: #f0c14b;
+    background: #FFD814;
     padding: 3px 10px;
     border: 1px solid;
-    margin-top: 5px;
+    border-radius: 7px;
+    margin-top: 8px;
     margin-left: 30px;
-    border-color: #a88734 #9c7e31 #846a29;
+    border-color: #a88734;
     color: #111;
+}
+
+.addToCart:hover{
+    background-color: #F7CA00;
+    /* transform: scale(1.1);
+    transition: 300ms; */
 }

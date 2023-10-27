@@ -4,6 +4,7 @@ import SubTotal from './SubTotal'
 import CartItem from './CartItem'
 import MiniBanner from './MiniBanner'
 import { useStateValue } from '../Context/stateProvider'
+import CurrencyFormat from 'react-currency-format'
 
 function Checkout() {
     
@@ -14,6 +15,11 @@ function Checkout() {
             type: 'EMPTY_CART'  
         })
     }
+
+    const totalPrice = cart.reduce((total, item) => {
+        return parseFloat(item.price) + total;
+    }, 0);
+
     return (
         <div className='CheckoutPage'>
             <MiniBanner />
@@ -43,8 +49,6 @@ function Checkout() {
 
                 <SubTotal />
             </div>
-
-            
         </div>
     )
 }

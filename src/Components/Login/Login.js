@@ -1,9 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
+import { auth } from './firebase';
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'firebase/auth';
 
 function Login() {
+
+    const[email, setEmail] = useState('');
+    const[password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const registerAcc = async (e) =>{
+        e.preventDefault();
+        
+        await createUserWithEmailAndPassword(auth, email, password)
+        .then((auth) => {
+            if(auth) {
+                navigate('/');
+            }
+        })
+        .catch((error) => alert(error.message));
+    };
+
+    const signIn = async (e) =>{
+        e.preventDefault();
+        
+        await signInWithEmailAndPassword(auth, email, password)
+        .then((auth) =>{
+            navigate('/');
+        })
+        .catch((error) => alert(error.message));
+    };
+
+
     return (
         <div className='LoginPage'>
             <Link to='/'>
@@ -16,22 +47,22 @@ function Login() {
                     <input
                         className='signIn__email'
                         type="text"
-                        // value={email}
-                        // onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
 
                     <h4>Password</h4>
                     <input
                         className='signIn__password'
                         type="password"
-                        // value={password}
-                        // onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <br/>
                     <button
                         className='signIn__button'
                         type="submit"
-                        // onClick={signIn}
+                        onClick={signIn}
                     >
                         Sign In
                     </button>
@@ -48,7 +79,7 @@ function Login() {
             <button
             className='createAcc__button'
                         type="submit"
-                        // onClick={signIn}
+                        onClick={registerAcc}
                     >
                         Create your Amazon account
             </button>
@@ -56,8 +87,4 @@ function Login() {
     )
 }
 
-export default Login
-
-// <div className='signIn__email'></div>
-//                 <div className='signIn__password'></div>
-//                 <button className='signIn__button'></button>
+export default Login;

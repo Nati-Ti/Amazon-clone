@@ -7,12 +7,28 @@ import HeaderProp from './HeaderProp'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStateValue } from '../Context/stateProvider';
+import { signOut } from "firebase/auth";
+import { auth } from '../Login/firebase';
 
 function Header() {
 
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ cart, user }, dispatch] = useStateValue();
+
+    const navigate = useNavigate();
+
+    const logOut = async () => {
+        await signOut(auth)
+        .then(() => {
+            // navigate('/Login');
+            // console.log("Signed out successfully!");
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
     return (
         <div className='Header'>
             <Link to='/' className='Header__logo'>
@@ -50,8 +66,8 @@ function Header() {
                 </button>
             </div>
 
-            <Link to='/Login' >
-                <HeaderProp smallText='Hello, sign in' largeText='Account & Lists' order='Header--textButton__wrapper2'/>
+            <Link to={!user && '/Login'} onClick={logOut} >
+                <HeaderProp smallText={!user ? "Hello, Guest" : `Hello, ${user.email} `} largeText={!user ? 'Sign in' : 'Account & Lists'} order='Header--textButton__wrapper2'/>
             </Link>
             <HeaderProp smallText='Returns' largeText='& Orders' order='Header--textButton__wrapper3'/>
             <Link to='/Checkout' className='Header__shoppingCart' >

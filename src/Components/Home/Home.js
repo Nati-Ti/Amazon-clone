@@ -13,14 +13,14 @@ function Home() {
             <div className='productRow'>
                 {Products.map((prod) =>{
                     return(
-                    <Product prodDescr={prod.Description} prodImg={prod.Image} prodOffer={prod.Offer} prodPrice={prod.Price} prodView={prod.View} prodRating={prod.Rating} key={prod.Description}/>
+                    <Product prodId={prod.Id} prodDescr={prod.Description} prodImg={prod.Image} prodOffer={prod.Offer} prodPrice={prod.Price} prodView={prod.View} prodRating={prod.Rating} key={prod.Id}/>
                 )})}                
             </div>
 
             <div className='productRow'>
                 {Products.map((prod) =>{
                     return(
-                    <Product prodDescr={prod.Description} prodImg={prod.Image} prodOffer={prod.Offer} prodPrice={prod.Price} prodView={prod.View} prodRating={prod.Rating} key={prod.Description}/>
+                    <Product prodId={prod.Id} prodDescr={prod.Description} prodImg={prod.Image} prodOffer={prod.Offer} prodPrice={prod.Price} prodView={prod.View} prodRating={prod.Rating} key={prod.Id}/>
                 )})}                
             </div>
         </div>

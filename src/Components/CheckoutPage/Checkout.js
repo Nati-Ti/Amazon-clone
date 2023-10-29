@@ -41,7 +41,7 @@ function Checkout() {
                     <div className='shoppingCart--item'>
                         {cart.map((item)=>{
                             return(
-                                <CartItem prodImg={item.image} prodDescr={item.description} prodPrice={item.price} prodRating={item.rating} />
+                                <CartItem prodId={item.id} prodImg={item.image} prodDescr={item.description} prodPrice={item.price} prodRating={item.rating} />
                         )})}
                     </div>
                 </div>

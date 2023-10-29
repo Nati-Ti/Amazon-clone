@@ -3,20 +3,17 @@ import './CartItem.css'
 import { useStateValue } from '../Context/stateProvider';
 
 
-function CartItem({prodImg, prodDescr, prodPrice, prodRating}) {
+function CartItem({prodId, prodImg, prodDescr, prodPrice, prodRating}) {
 
     const [isChecked, setIsChecked] = useState(true);
     const [{cart}, dispatch] = useStateValue();
 
     const itemRemoved = () =>{
+        // setIsChecked(false);
         dispatch({
             type: 'REMOVE_ITEM',
-            item: {
-                image: prodImg,
-                description: prodDescr,
-                rating: prodRating,
-                price: prodPrice
-            }});
+            id: prodId,
+            });
     }
     return (
         <div className='CartItem'>
@@ -34,7 +31,7 @@ function CartItem({prodImg, prodDescr, prodPrice, prodRating}) {
                 {Array(Math.floor(prodRating))
                 .fill()
                 .map((_, i) => (
-                <p key={i}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
+                <p key={prodId}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
                 ))} 
                 </div>
                 <div className='item__price'>

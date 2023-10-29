@@ -3,7 +3,7 @@ import './Product.css'
 import { useStateValue } from '../Context/stateProvider';
 
 
-function Product({prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}) {
+function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}) {
 
     const [{ cart }, dispatch] = useStateValue();
 
@@ -11,6 +11,7 @@ function Product({prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}
         dispatch({
             type: 'ADD_TO_CART',
             item: {
+                id: prodId,
                 image: prodImg,
                 description: prodDescr,
                 rating: prodRating,
@@ -38,7 +39,7 @@ function Product({prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}
                 {Array(Math.floor(prodRating))
                 .fill()
                 .map((_, i) => (
-                <p key={i}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
+                <p key={prodId}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
                 ))} 
             </div>
 

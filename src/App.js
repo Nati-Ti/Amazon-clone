@@ -10,6 +10,7 @@ import { auth } from './Components/Login/firebase';
 import React, { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import Footer from './Components/Footer/Footer';
+import CheckoutItems from './Components/CheckoutPage/CheckoutItems';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
           <Footer />
         </>
       } />
+        <Route path='/CheckoutItems' element={<CheckoutItems />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/' element={
         <>

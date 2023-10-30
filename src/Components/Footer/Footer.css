@@ -170,3 +170,34 @@ ul{
 button:hover{
     background-color: #485769;
 }
+
+
+@media (max-width: 1362px) and (min-width: 1079px) {
+    .footer{
+        min-width: 1200px;
+    }
+}
+
+@media (max-width: 1079px) and (min-width: 992px) {
+    .footer{
+        min-width: 1080px;
+    }
+    .internal__links{
+        max-width: 1080px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer{
+        min-width: 992px;
+    }
+    .internal__links{
+        max-width: 992px;
+    }
+    .external__links{
+        max-width: 992px;
+    }
+    .column_1 li, .column_2 li, .column_3 li, .column_4 li, .column_5 li, .column_6 li, .column_7 li{
+        max-width: 90px;
+    }
+}

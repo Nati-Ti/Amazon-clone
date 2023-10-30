@@ -1,7 +1,7 @@
 .Header--navBar{
     background-color: #232f3e;
     width: 100%;
-    height: 39px;
+    /* height: 39px; */
     z-index: -1;
 }
 
@@ -10,16 +10,12 @@
     width: 75%;
     justify-content: space-between;
     padding-left: 25px;
-
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 .NavLink, .dropDown{
     color: white;
     text-decoration: none;
+    /* font-size: 1em; */
     padding: 5px;
     font-weight: 400;
     border: 2px solid #232f3e;
@@ -39,4 +35,42 @@
 
 .dropDown:hover{
     border-color: white;
+}
+
+
+
+@media (max-width: 1380px) and (min-width: 1079px) {
+    .Header--navBar {
+        min-width: 1200px;
+    }
+    .Header--navBar__nav {
+        width: 87%;
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 1079px) and (min-width: 992px) {
+    .Header--navBar {
+        min-width: 1080px;
+    }
+    .Header--navBar__nav {
+        width: 96%;
+        padding-left: 15px;
+    }
+    .NavLink, .dropDown{
+        font-size: 0.99rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .Header--navBar {
+        min-width: 992px;
+    }
+    .Header--navBar__nav {
+        width: 95%;
+        padding-left: 15px;
+    }
+    .NavLink, .dropDown{
+        font-size: 0.8rem;
+    }
 }

@@ -149,21 +149,21 @@
 
 .Header--textButton__wrapper2{
     width: auto;
-    max-height: 50px;
+    max-height: 100%;
     color: #D6D6D6;
     font-size: 14px;
-    margin: 5px 0px;
-    padding: 0px 9px 10px;
+    /* margin: 5px 0px; */
+    padding: 0px 9px;
     text-decoration: none;
 }
 
 .Header--textButton__wrapper3{
     width: auto;
-    max-height: 50px;
+    max-height: 100%;
     color: #D6D6D6;
     font-size: 14px;
-    margin: 5px 0px 5px 2px;
-    padding: 0px 9px 10px;
+    /* margin: 5px 0px 5px 2px; */
+    padding: 0px 9px;
 }
 
 .Header__shoppingCart{
@@ -217,12 +217,33 @@
 }
 
 
+@media (max-width: 1500px) and (min-width: 1362px){
+    .Header--searchBar{
+        min-width: 37.5%;
+    }
+}
+
+@media (max-width: 1362px) and (min-width: 1290px) {
+    .Header--textButton__wrapper2 .Header__smallText{
+        font-size: 0.8rem;
+    }
+    .Header--textButton__wrapper2 .Header__largeText{
+        font-size: 1rem;
+    }
+    .Header--textButton__wrapper3 .Header__smallText{
+        font-size: 0.8rem;
+    }
+    .Header--textButton__wrapper3 .Header__largeText{
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 1362px) and (min-width: 1079px) {
     .Header {
         min-width: 1200px;
     }
     .Header--searchBar{
-        min-width: 37.5%;
+        min-width: 36%;
     }
     .Header--textButton__wrapper2 .Header__smallText{
         font-size: 0.7rem;
@@ -231,7 +252,7 @@
         font-size: 0.9rem;
     }
     .Header--textButton__wrapper3 .Header__smallText{
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
     .Header--textButton__wrapper3 .Header__largeText{
         font-size: 0.8rem;

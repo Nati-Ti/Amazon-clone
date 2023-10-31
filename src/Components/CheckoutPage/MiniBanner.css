@@ -36,3 +36,17 @@
     color: #007185;
     padding-left: 5px;
 }
+
+
+
+@media (max-width: 1380px) and (min-width: 1079px) {
+    .MiniBanner{
+        width: 40%;
+    }
+}
+
+@media (max-width: 992px) {
+    .MiniBanner{
+        width: 38%;
+    }
+}

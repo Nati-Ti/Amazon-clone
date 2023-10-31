@@ -121,3 +121,42 @@
 .custom-select select:focus {
     outline: none;
 }
+
+
+
+
+@media (max-width: 1280px) and (min-width: 1079px) {
+    .item__add__links a{
+        padding: 0px 20px;
+    }
+    .custom-select select{
+        padding: 5px;
+        margin: 5px 10px 0px 0px;
+    }
+}
+
+@media (max-width: 1079px) and (min-width: 992px) {
+    .item__add__links{
+        min-width: 80%;
+    }
+    .item__add__links a{
+        padding: 0px 15px;
+    }
+    .custom-select select{
+        padding: 5px;
+        margin: 5px 10px 0px 0px;
+    }
+}
+
+@media (max-width: 992px) {
+    .item__add__links{
+        min-width: 90%;
+    }
+    .item__add__links a{
+        padding: 0px 15px;
+    }
+    .custom-select select{
+        padding: 5px;
+        margin: 5px 10px 0px 0px;
+    } 
+}

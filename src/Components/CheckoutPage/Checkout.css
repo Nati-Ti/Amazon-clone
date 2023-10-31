@@ -53,3 +53,25 @@ hr {
     text-align: right;
     margin: 20px 20px;
 }
+
+
+
+
+@media (max-width: 1362px) and (min-width: 1079px) {
+    .CheckoutPage {
+        min-width: 1200px;
+    }
+}
+
+@media (max-width: 1079px) and (min-width: 992px) {
+    .CheckoutPage {
+        min-width: 1080px;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .CheckoutPage {
+        min-width: 992px;
+    }   
+}

@@ -39,3 +39,52 @@
     border: none;
     border-radius: 10px;
 }
+
+
+
+@media (max-width: 1362px) and (min-width: 1079px) {
+    .checkout--items--price {
+        display: block;
+    }
+    .checkout__items{
+        display: flex;
+        justify-content: center;
+    }
+    .checkout__price{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1079px) and (min-width: 992px) {
+    .checkout--items--price {
+        display: block;
+    }
+    .checkout__items{
+        display: flex;
+        justify-content: center;
+    }
+    .checkout__price{
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+
+
+@media (max-width: 992px) {
+    .Subtotal{
+        width: 23%;
+    }
+    .checkout--items--price {
+        display: block;
+    }
+    .checkout__items{
+        display: flex;
+        justify-content: center;
+    }
+    .checkout__price{
+        display: flex;
+        justify-content: center;
+    }  
+}

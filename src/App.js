@@ -10,7 +10,11 @@ import { auth } from './Components/Login/firebase';
 import React, { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import Footer from './Components/Footer/Footer';
-import CheckoutItems from './Components/CheckoutPage/CheckoutItems';
+import { loadStripe } from '@stripe/stripe-js';
+import Payment from './Components/CheckoutPage/Payment';
+import { Elements } from '@stripe/react-stripe-js';
+
+const promise = loadStripe('pk_test_51O7kkAGlAOBS4r9MuYdxTIHk2hIzz6P36MPGcjAIkE3xiVGSI9yTLDQAuzDV74H5llm446WI5BCrylpq1aGKbFIO00f3AjTQyu');
 
 function App() {
 
@@ -44,7 +48,11 @@ function App() {
           <Footer />
         </>
       } />
-        <Route path='/CheckoutItems' element={<CheckoutItems />} />
+        <Route path='/Payment' element={
+          <Elements stripe={promise}>
+            <Payment />
+          </Elements>
+          } />
         <Route path='/Login' element={<Login />} />
         <Route path='/' element={
         <>

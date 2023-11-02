@@ -23,7 +23,7 @@ function SubTotal() {
                         {value}
                     </div>
                 </div>
-                <Link to='/CheckoutItems'>
+                <Link to='/Payment'>
                     <button className='checkout__button'>
                         Proceed to checkout
                     </button>

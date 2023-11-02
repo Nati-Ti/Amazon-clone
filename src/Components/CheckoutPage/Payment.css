@@ -1,0 +1,125 @@
+.paymentPage{
+    padding: 14px 18px 18px;
+    /* padding-bottom: 100px; */
+}
+
+.itemsPage__header{
+    display: flex;
+    justify-content: space-around;
+    padding: 13px 0px 10px 0px;
+    border-bottom: 1px solid #DDDDDD;
+    position: relative;
+}
+
+.itemsPage__header::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, #F2F2F2);
+    
+}
+
+.header__logo{
+    margin-left: -100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 14px;
+    z-index: 1;
+}
+
+.itemsPage__header img{
+    height: 33px;
+}
+
+.header__checkout{
+    font-size: 32px;
+    font-weight: 500;
+    color: #0F1111;
+    padding-right: 14px;
+    z-index: 1;
+}
+
+.header__redirectLink{
+    color: #007185;
+    text-decoration: none;
+}
+
+.header__lockIcon{
+    color: #999999;
+    margin: 10px 0px 0px -10px;
+}
+
+.deliveryAddress, .itemsReview, .paymentMethod {
+    display: flex;
+    /* align-items: center; */
+}
+
+.deliveryAddress h3, .itemsReview h3, .paymentMethod h3{
+    width: 20%;
+    /* padding-left: 20px; */
+    padding: 20px 0px 20px 30px;
+}
+
+.itemsReview h3{
+    /* padding-top: 20px; */
+}
+
+.deliveryDetails {
+    padding: 20px 0px;
+}
+
+.itemsReview {
+    padding-bottom: 20px;
+}
+
+.deliveryAddress, .itemsReview, .paymentMethod{
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.itemsReview__item .CartItem:last-child{
+    border-bottom: none;
+}
+
+.deliveryDetails, .itemsReview__item{
+    width: 60%;
+}
+
+.paymentMethod {
+    padding-bottom: 30px;
+    /* margin-bottom: 100px; */
+}
+
+.payment__detail{
+    width: 30%;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.payment__detailPrice h4{
+    margin-top: 5px;
+}
+
+.payment__detailPrice button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px 0px;
+    background-color: #FFD814;
+    border: none;
+    color: black;
+    border-radius: 7px;
+    box-shadow: 0 6px 18px -9px rgba(0, 0, 1, 0.5);
+
+}
+
+.payment__detailPrice button:hover{
+    background-color: #F7CA00;
+}
+
+.errorLog{
+    font-size: 13px;
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,84 @@
+.orders{
+    width: 100%;
+    background-color: #e6e6e6;
+    padding: 70px 0px 30px;
+}
+
+.ordersPage{
+    width: 70%;
+    margin: 0px auto;
+
+}
+
+.order{
+    border: 1px solid #DDDDDD;
+    background-color: white;
+    margin: 30px 0px;
+    padding: 20px 30px;
+}
+
+.order__header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order__header div h2{
+    margin-bottom: -5px;
+}
+
+.order__header{
+    margin-bottom: 10px;
+}
+
+.order__price{
+    text-align: right;
+}
+
+.order__items .CartItem:last-child{
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+@media (max-width: 1362px) and (min-width: 1290px) {
+    .ordersPage{
+        width: 75%;
+    }
+
+    .orders{
+        min-width: 1290px;
+    }
+
+}
+
+@media (max-width: 1290px) and (min-width: 1079px) {
+    .ordersPage{
+        width: 85%;
+    }
+    .orders{
+        min-width: 1200px;
+    }
+}
+
+@media (max-width: 1079px) and (min-width: 992px) {
+    .ordersPage{
+        width: 85%;
+    }
+    .orders{
+        min-width: 1080px;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .ordersPage{
+        min-width: 85%;
+    }
+    .orders{
+        min-width: 992px;
+    }
+}

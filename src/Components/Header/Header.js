@@ -69,7 +69,11 @@ function Header() {
             <Link to={!user && '/Login'} onClick={logOut} >
                 <HeaderProp smallText={!user ? "Hello, Guest" : `Hello, ${user.email} `} largeText={!user ? 'Sign in' : 'Account & Lists'} order='Header--textButton__wrapper2'/>
             </Link>
-            <HeaderProp smallText='Returns' largeText='& Orders' order='Header--textButton__wrapper3'/>
+
+            <Link to='/Orders'>
+                <HeaderProp smallText='Returns' largeText='& Orders' order='Header--textButton__wrapper3'/>
+            </Link>
+            
             <Link to='/Checkout' className='Header__shoppingCart' >
             
                 <div className='shoppingCart'>

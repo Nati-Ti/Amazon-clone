@@ -52,8 +52,10 @@ function Footer() {
             <div className="bottom_terms">
                 <div className="conditionAndTerms">
                 <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508088&ref_=footer_cou">Conditions of Use </a> <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496&ref_=footer_privacy">Privacy Notice</a> <a href="https://www.amazon.com/privacyprefs?ref_=footer_iba">Your Ads Privacy Choices</a>
+                <img className='privacyIcon' src='https://signup.heroku.com/assets/privacy-c5c3a463f9246ecae06befec31bebc5d387cfcabafac948d38e08ffd5c73ea06.png' alt='privacy icon'/>
                 </div>
                 <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+                
             </div>
 
         </div>

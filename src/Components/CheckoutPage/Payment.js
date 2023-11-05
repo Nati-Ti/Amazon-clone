@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Payment.css'
 import { useStateValue } from '../Context/stateProvider'
 import LockIcon from '@mui/icons-material/Lock';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CartItem from './CartItem';
 import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import axios from './Axios';
+import { db } from '../Login/firebase';
+// import { collection, doc, setDoc } from "firebase/firestore";
 
 function Payment() {
 
@@ -15,6 +17,8 @@ function Payment() {
     const totalPrice = cart.reduce((total, item) => {
         return parseFloat(item.price) + total;
     }, 0);
+
+    const navigate = useNavigate();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -27,15 +31,63 @@ function Payment() {
 
     const [clientSecret, setClientSecret] = useState(true);
 
-    const handleSubmit = (event) => {
+    
+    useEffect(() => {
+        // generate the special stripe secret which allows us to charge a customer
+        const getClientSecret = async () => {
+            const response = await axios({
+                method: 'post',
+                url: `/payments/create?total=${totalPrice * 100}`,
+            });
+            setClientSecret(response.data.clientSecret);
+        };
+    
+        getClientSecret();
+    }, [cart]);
+
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         setProcessing(true);
+
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+            card: elements.getElement(CardElement),
+        }})
+        .then(({ error, paymentIntent }) => {
+            // if (error || !paymentIntent) {
+            //     console.log(error);
+            // } else {
+                db.collection('users')
+                  .doc(user?.uid)
+                  .collection('orders')
+                  .doc(paymentIntent.id)
+                  .set({
+                        cart: cart,
+                        amount: paymentIntent.amount,
+                        created: paymentIntent.created,
+                    });
+
+                setSucceeded(true);
+                setError(null);
+                setProcessing(false);
+
+                dispatch({
+                    type: 'EMPTY_CART',
+                });
+
+                navigate('/Orders');
+            // }
+        });
     };
 
     const handleChange = (event) => {
         setDisabled(event.empty);
         setError(event.error ? event.error.message : '');
     };
+
+
+    console.log("The Secret key is:", clientSecret);
 
     return (
         <div className='paymentPage'>

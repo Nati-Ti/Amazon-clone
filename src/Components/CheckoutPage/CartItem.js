@@ -3,7 +3,7 @@ import './CartItem.css'
 import { useStateValue } from '../Context/stateProvider';
 
 
-function CartItem({prodId, prodImg, prodDescr, prodPrice, prodRating}) {
+function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRating}) {
 
     const [isChecked, setIsChecked] = useState(true);
     const [{cart}, dispatch] = useStateValue();
@@ -17,9 +17,11 @@ function CartItem({prodId, prodImg, prodDescr, prodPrice, prodRating}) {
     }
     return (
         <div className='CartItem'>
-            <div className='item__checkBox'>
+
+            {!removeCheckbox ? <div className='item__checkBox'>
                 <input type="checkbox" checked={isChecked} onChange={itemRemoved} id="myCheckbox" name="myCheckbox" />
-            </div>
+            </div> : null }
+            
             <div className='item__image'>            
                 <img src={prodImg} alt={prodDescr}/>
             </div>
@@ -30,8 +32,8 @@ function CartItem({prodId, prodImg, prodDescr, prodPrice, prodRating}) {
                 <div className='item__rating'>
                 {Array(Math.floor(prodRating))
                 .fill()
-                .map((_, i) => (
-                <p key={prodId}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
+                .map((_, index) => (
+                <p key={index}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
                 ))} 
                 </div>
                 <div className='item__price'>

@@ -4,7 +4,6 @@ import SubTotal from './SubTotal'
 import CartItem from './CartItem'
 import MiniBanner from './MiniBanner'
 import { useStateValue } from '../Context/stateProvider'
-import CurrencyFormat from 'react-currency-format'
 
 function Checkout() {
     
@@ -39,10 +38,22 @@ function Checkout() {
                     
 
                     <div className='shoppingCart--item'>
-                        {cart.map((item)=>{
-                            return(
-                                <CartItem prodId={item.id} prodImg={item.image} prodDescr={item.description} prodPrice={item.price} prodRating={item.rating} />
-                        )})}
+                        {!cart.length ? 
+                            <div className='emptyItem'>Please go back to the products and add to your cart.</div>
+                        : (
+                            cart.map((item) => {
+                            return (
+                                <CartItem
+                                prodId={item.id}
+                                prodImg={item.image}
+                                prodDescr={item.description}
+                                prodPrice={item.price}
+                                prodRating={item.rating}
+                                key={item.id}
+                                />
+                            );
+                            })
+                        )}
                     </div>
                 </div>
 

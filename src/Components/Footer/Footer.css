@@ -171,6 +171,14 @@ button:hover{
     background-color: #485769;
 }
 
+.privacyIcon{
+    margin-top: 2px;
+    height: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
 
 @media (max-width: 1362px) and (min-width: 1079px) {
     .footer{

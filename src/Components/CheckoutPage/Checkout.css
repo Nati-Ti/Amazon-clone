@@ -26,6 +26,7 @@
 }
 
 .shoppingCart__deselect{
+    width: 150px;
     font-size: 14px;
     color: #007185;
 }
@@ -40,6 +41,10 @@ hr {
 
 .shoppingCart--item{
     padding: 12px 0px 12px 12px;
+}
+
+.emptyItem{
+    padding: 20px 0px 50px;
 }
 
 .shoppingCart__header{

@@ -2,6 +2,8 @@ import React from 'react'
 import './Footer.css'
 import { FooterLowerLinks, FooterUpperLinks } from './FooterLinkJSON'
 import FooterProp from './FooterProp'
+import { Link } from 'react-router-dom';
+import LanguageIcon from '@mui/icons-material/Language';
 
 function Footer() {
 
@@ -14,7 +16,7 @@ function Footer() {
     
     return (
         <div className="footer">
-            <button onClick={scrollToTop}>Back to top</button>
+            <button className='button__toTop' onClick={scrollToTop}>Back to top</button>
             <div className='upper__footer'>
                 <div className="internal__links">
                     <div>
@@ -33,6 +35,23 @@ function Footer() {
                         <strong>Let Us Help You</strong>
                         <FooterProp UppLinks={FooterUpperLinks.column4} nameClass1='uColumn_4' />
                         </div>
+                </div>
+            </div>
+
+            <div >
+                <div className='middle__buttons'>
+                    <Link to='/' className='logo__wrapper' >
+                        <img className='footer__logo' src='https://freelogopng.com/images/all_img/1688364164amazon-logo-transparent.png' alt='amazon logo'/>
+                    </Link>
+
+                    <button className='lang__button'><LanguageIcon fontSize='small' />English</button>
+                    <button className='currency__button'>
+                        <strong>$ </strong> <div> USD - U.S. Dollar</div></button>
+                    <button 
+                    className='flag__button'>
+                        <img className='language__button__logo' src='https://freepngimg.com/download/logo/127389-logo-american-flag-picture-free-download-png-hd.png' alt='US flag logo'/>
+                        United States 
+                    </button>
                 </div>
             </div>
 

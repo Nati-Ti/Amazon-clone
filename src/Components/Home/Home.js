@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Product from '../Product/Product';
 import Products from '../Product/ProductsJSON';
+import BuyPackages, { Buy4Packages } from './BuyPackages';
+import Packages from './PackagesJSON';
 
 function Home() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -43,6 +45,27 @@ function Home() {
             alt='AmazonPrime Banner'
         />
         </div>
+
+
+        <div className='packagesInRow'>
+            {Packages.map((pack) => {
+                return pack.PackageOfOne ? (
+                    <BuyPackages
+                    Title={pack.Title}
+                    Image={pack.Image}
+                    Url={pack.Url}
+                    />
+                ) : (
+                    <BuyPackages
+                    Title={pack.Title}
+                    Url={pack.Url}
+                    PackagesOfFour={pack.PackagesOfFour} 
+                    />
+            );
+            })}    
+        </div>
+        
+
         <div className='productRow__container'>
             <div className='productRow'>
             {displayedProducts.map((prod) => (
@@ -59,6 +82,20 @@ function Home() {
             ))}
             </div>
         </div>
+        
+        {/* {Packages.map((pack) => {
+            return(
+                <BuyPackages 
+                Title={pack.Title} 
+                Image={pack.Image} 
+                Url={pack.Url} /> 
+            )
+        })} */}
+
+        
+        
+        
+
     </div>
     );
 }

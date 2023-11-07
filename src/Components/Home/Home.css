@@ -9,7 +9,7 @@
 .Banner__img{
     width: 100%;
     mask-image: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.92),rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0));
-    margin-bottom: -250px;
+    margin-bottom: -350px;
     z-index: -1;
 }
 
@@ -31,7 +31,6 @@
 
 .productRow > * {
     flex: 1;
-    /* margin: 0 10px; */
 }
 
 .packagesInRow{
@@ -39,6 +38,45 @@
     justify-content: space-evenly;
     padding-bottom: 50px;
 }
+
+.banner__buttons{
+    display: flex;
+}
+
+.banner__buttonPrev, .banner__buttonNext{
+    z-index: 2;
+    margin-top: 3px;
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    border: none;
+    height: 250px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.banner__buttonPrev{
+    margin-left: 2px;
+}
+
+.banner__buttonPrev:hover, .banner__buttonNext:hover{
+    opacity: 10;
+    border: 3px solid #278798;
+    outline: 3px solid white;
+    border-radius: 3px;
+}
+
+.banner__buttonNext{
+    right: 0;
+}
+
+
+
 
 
 @media (max-width: 1200px) and (min-width: 1079px) {

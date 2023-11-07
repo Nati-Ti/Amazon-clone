@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Product from '../Product/Product';
 import Products from '../Product/ProductsJSON';
-import BuyPackages, { Buy4Packages } from './BuyPackages';
+import BuyPackages from './BuyPackages';
 import Packages from './PackagesJSON';
+import Banner from './Banner';
 
 function Home() {
+
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [productCount, setProductCount] = useState(0);
 
@@ -38,14 +40,8 @@ function Home() {
 
     return (
     <div className='Home'>
-        <div className='Home--Banner'>
-        <img
-            className='Banner__img'
-            src='https://m.media-amazon.com/images/I/71jTTOiYMrL._SX3000_.jpg'
-            alt='AmazonPrime Banner'
-        />
-        </div>
-
+        
+        <Banner />
 
         <div className='packagesInRow'>
             {Packages.map((pack) => {
@@ -54,12 +50,21 @@ function Home() {
                     Title={pack.Title}
                     Image={pack.Image}
                     Url={pack.Url}
+                    PackageOfOne = {pack.PackageOfOne}
                     />
                 ) : (
                     <BuyPackages
                     Title={pack.Title}
                     Url={pack.Url}
-                    PackagesOfFour={pack.PackagesOfFour} 
+                    Image1={pack.PackagesOfFour.Image1}
+                    Image2={pack.PackagesOfFour.Image2}
+                    Image3={pack.PackagesOfFour.Image3}
+                    Image4={pack.PackagesOfFour.Image4}
+                    Title1={pack.PackagesOfFour.Title1}
+                    Title2={pack.PackagesOfFour.Title2}
+                    Title3={pack.PackagesOfFour.Title3}
+                    Title4={pack.PackagesOfFour.Title4}
+                    PackageOfOne = {pack.PackageOfOne}
                     />
             );
             })}    
@@ -82,19 +87,6 @@ function Home() {
             ))}
             </div>
         </div>
-        
-        {/* {Packages.map((pack) => {
-            return(
-                <BuyPackages 
-                Title={pack.Title} 
-                Image={pack.Image} 
-                Url={pack.Url} /> 
-            )
-        })} */}
-
-        
-        
-        
 
     </div>
     );

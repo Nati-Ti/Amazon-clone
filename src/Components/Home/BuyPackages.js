@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './BuyPackages.css'
 
-function BuyPackages( {Title, Image, Url,PackagesOfFour,  Title1, Title2, Title3, Title4, Image1, Image2, Image3, Image4}) {
+function BuyPackages( {Title, Image, Url, PackageOfOne ,  Title1, Title2, Title3, Title4, Image1, Image2, Image3, Image4}) {
     return (
         <div className='buyPackages'>
             <div className='packages__wrapper'>
@@ -14,30 +14,44 @@ function BuyPackages( {Title, Image, Url,PackagesOfFour,  Title1, Title2, Title3
                     <img src={Image} alt={Title}/>
                 </div> */}
 
-                {!PackagesOfFour ? 
+                {PackageOfOne ? 
                 <div className='package__image'>
                     <img src={Image} alt={Title}/>
                 </div> :
 
-                (<div className='packageOfFour__image'>
+                (
+                <div className='packageOfFour__image'>
+
                     <div className='row1'>
-                        <Buy4Packages 
-                        Image={PackagesOfFour[0].Image1} 
-                        Title={PackagesOfFour[0].Title1} />
+                        <div className='packageOne'>
+                            <img src={Image1} alt={Title1}/>
+                            <p>{Title1}</p>
+                        </div>
+                        
+                        <div className='packageOne'>
+                            <img src={Image2} alt={Title2}/>
+                            <p>{Title2}</p>
+                        </div>
+                    </div>
 
-                        <Buy4Packages 
-                        Image={PackagesOfFour[1].Image2} 
-                        Title={PackagesOfFour[1].Title2} />
-
+                    <div>
                         <div className='row2'>
-                            <Buy4Packages Image={PackagesOfFour.Image3} Title={PackagesOfFour.Title3} />
-                            <Buy4Packages Image={PackagesOfFour.Image4} Title={PackagesOfFour.Title4} />
+                            <div className='packageOne'>
+                                <img src={Image3} alt={Title3}/>
+                                <p>{Title3}</p>
+                            </div>
+                            
+                            <div className='packageOne'>
+                                <img src={Image4} alt={Title4}/>
+                                <p>{Title4}</p>
                             </div>
                         </div>
+                    </div>
                 </div>
                 )}
 
-                <Link className='package__url' to={Url}>Shop now
+                <Link className='package__url' to={Url}>
+                    Shop now
                 </Link>
 
             </div>
@@ -49,11 +63,11 @@ export default BuyPackages
 
 
 
-export function Buy4Packages({Image1, Title1}) {
-    return (
-        <div className='packageOne'>
-            <img src={Image1} alt={Title1}/>
-            <p>{Title1}</p>
-        </div>
-    )
-}
+// export function Buy4Packages({Image1, Title1}) {
+//     return (
+//         <div className='packageOne'>
+//             <img src={Image1} alt={Title1}/>
+//             <p>{Title1}</p>
+//         </div>
+//     )
+// }

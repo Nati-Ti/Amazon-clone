@@ -33,6 +33,7 @@
 .package__url{
     padding-left: 20px;
     text-decoration: none;
+    color: rgb(39, 135, 152);
     /* justify-content: center; */
 
 }
@@ -40,12 +41,26 @@
 
 
 .row1, .row2{
-    width: 272px;
+    width: inherit;
     height: 151px;
     display: flex;
+    justify-content: space-evenly;
 }
 
-.row1__item1 img, .row1__item2 img, .row2__item3 img, .row2__item4 img{
-    width: 115px;
-    height: 115px;
+.row1{
+    margin-bottom: 15px;
+}
+
+.packageOne img{
+    width: 140px;
+    height: 125px;
+}
+
+.packageOne{
+    font-size: 13px;
+}
+
+.packageOfFour__image{
+    /* padding: 0px 20px; */
+
 }

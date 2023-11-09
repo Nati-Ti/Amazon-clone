@@ -4,61 +4,61 @@ const NavLinks = [
 
     {
         "name" : "All",
-        "url" : "/All",
+        "url" : "/",
         "toggle" : true,
         "dropDown" : false
     },
     {
         "name" : "Holiday Deals",
-        "url" : "/HolidayDeals",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     },
     {
         "name" : "Holiday Shop",
-        "url" : "/HolidayShop",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     },
     {
         "name" : "Medical Care",
-        "url" : "/MedicalCare",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : true
     },
     {
         "name" : "Best Sellers",
-        "url" : "/BestSellers",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     },
     {
         "name" : "Amazon Basics",
-        "url" : "/AmazonBasics",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     },
     {
         "name" : "Prime",
-        "url" : "/Prime",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : true
     },
     {
         "name" : "Today's Deals",
-        "url" : "/TodayDeals",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     },
     {
         "name" : "New Releases",
-        "url" : "/NewReleases",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     },
     {
         "name" : "Help Center",
-        "url" : "/HelpCenter",
+        "url" : "/",
         "toggle" : false,
         "dropDown" : false
     }

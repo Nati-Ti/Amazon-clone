@@ -39,7 +39,7 @@ function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, pro
                 {Array(Math.floor(prodRating))
                 .fill()
                 .map((_, i) => (
-                <p key={prodId}><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
+                <p key={i} ><img className='starIcon' src='https://www.svgrepo.com/show/13695/star.svg' alt='star Icon' /> </p>
                 ))} 
             </div>
 

@@ -16,8 +16,10 @@
 }
 
 .Product--Img{
-    width: 100%;
-    /* height: 160px; */
+    max-width: 160px;
+    display: flex;
+    margin: 0px auto;
+    height: 160px;
     z-index: -1;
 }
 

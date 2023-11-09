@@ -56,8 +56,12 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
     cursor: pointer;
+}
+
+.buttonPrev{
+    opacity: 1;
 }
 
 .banner__buttonPrev{
@@ -65,7 +69,7 @@
 }
 
 .banner__buttonPrev:hover, .banner__buttonNext:hover{
-    opacity: 10;
+    opacity: 1;
     border: 3px solid #278798;
     outline: 3px solid white;
     border-radius: 3px;
@@ -78,9 +82,8 @@
 
 
 
-
 @media (max-width: 1200px) and (min-width: 1079px) {
-    .Home--Banner{
+    .Home--Banner, .Home{
         min-width: 1200px;
     }
     .Banner__img{
@@ -92,7 +95,7 @@
 }
 
 @media (max-width: 1079px) and (min-width: 992px) {
-    .Home--Banner{
+    .Home--Banner, .Home{
         min-width: 1080px;
     }
     .Banner__img{
@@ -104,6 +107,9 @@
 }
 
 @media (max-width: 992px) {
+    .Home{
+        min-width: 992px;
+    }
     .Banner__img{
         margin-bottom: -160px;
     }

@@ -2,7 +2,7 @@
 const Packages1 = [
     {
         "PackageOfOne" : "true",
-        "Title" : "Small gifts under $20",
+        "Title" : "Small gifts",
         "Image" : "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/EBF23/Fuji_Desktop_Single_image_EBF_1x_v2._SY304_CB573698005_.jpg",
         "Url" : "/"
     },
@@ -46,7 +46,7 @@ export default Packages1;
 export const Packages2 = [
     {
         "PackageOfOne" : "",
-        "Title" : "Shop deals in Fashion",
+        "Title" : "Deals in Fashion",
         "PackagesOfFour" :  
             {
                 "Title1" : "Jeans under $50",
@@ -66,19 +66,19 @@ export const Packages2 = [
     },
     {
         "PackageOfOne" : "true",
-        "Title" : "Holiday deals in fashion",
+        "Title" : "Holiday deals",
         "Image" : "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/EBF23/Fuji_Desktop_Single_image_EBF_1x_v4._SY304_CB573698005_.jpg",
         "Url" : "/"
     },
     {
         "PackageOfOne" : "true",
-        "Title" : "Shop holiday gift guides",
+        "Title" : "Shop holiday gift",
         "Image" : "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/GiftGuides/Fuji_Holiday_Gift_guide_Desktop_Card_1x_379x304_EN._SY304_CB576347904_.jpg",
         "Url" : "/"
     },
     {
         "PackageOfOne" : "true",
-        "Title" : "Home decor under $50",
+        "Title" : "Home decor",
         "Image" : "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2023/EBF23/Fuji_Desktop_Single_image_EBF_1x_v6._SY304_CB573698005_.jpg",
         "Url" : "/"
     }

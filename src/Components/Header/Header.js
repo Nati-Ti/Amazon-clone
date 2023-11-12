@@ -35,7 +35,7 @@ function Header() {
                 <img src='https://freelogopng.com/images/all_img/1688364164amazon-logo-transparent.png' alt='amazon logo'/>
             </Link>
 
-            <HeaderProp smallText='Deliver to' largeText='United States Minor' icon='true' order='Header--textButton__wrapper' />
+            <HeaderProp smallText='Deliver to' largeText='United States' icon='true' order='Header--textButton__wrapper' />
 
 
 
@@ -70,7 +70,7 @@ function Header() {
                 <HeaderProp smallText={!user ? "Hello, Guest" : `Hello, ${user.email} `} largeText={!user ? 'Sign in' : 'Account & Lists'} order='Header--textButton__wrapper2'/>
             </Link>
 
-            <Link to='/Orders'>
+            <Link to={user ? '/Orders' : '/Login' } >
                 <HeaderProp smallText='Returns' largeText='& Orders' order='Header--textButton__wrapper3'/>
             </Link>
             

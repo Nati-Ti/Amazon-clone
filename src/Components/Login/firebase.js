@@ -6,13 +6,13 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyArHeuf1YYZph5Kfo8p-a-qSG7xNLpTD4M",
-    authDomain: "clone-6fc62.firebaseapp.com",
-    projectId: "clone-6fc62",
-    storageBucket: "clone-6fc62.appspot.com",
-    messagingSenderId: "433846804221",
-    appId: "1:433846804221:web:ef0bfda6b4b89dd9b5e894",
-    measurementId: "G-BM25318KFD"
+    apiKey: "AIzaSyAGSrmHRTXs7VZCfW1lHh1LlSvvo4-vQn8",
+    authDomain: "clone-14c9f.firebaseapp.com",
+    projectId: "clone-14c9f",
+    storageBucket: "clone-14c9f.appspot.com",
+    messagingSenderId: "183551437134",
+    appId: "1:183551437134:web:00c60e10f022db989b161f",
+    measurementId: "G-KZJSKTR3HS"
 };
 
 // Initialize Firebase

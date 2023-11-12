@@ -1,25 +1,32 @@
 import React from 'react'
 import './Product.css'
+import { useNavigate } from 'react-router-dom';
 import { useStateValue } from '../Context/stateProvider';
 
 
 function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}) {
 
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ cart, user }, dispatch] = useStateValue();
+
+    const navigate = useNavigate();
 
     const addToCart = () =>{
-        dispatch({
-            type: 'ADD_TO_CART',
-            item: {
-                id: prodId,
-                image: prodImg,
-                description: prodDescr,
-                rating: prodRating,
-                price: prodPrice,
-                view: prodView,
-                offer: prodOffer
-            }
-        });
+        if (user) {
+            dispatch({
+                type: 'ADD_TO_CART',
+                item: {
+                    id: prodId,
+                    image: prodImg,
+                    description: prodDescr,
+                    rating: prodRating,
+                    price: prodPrice,
+                    view: prodView,
+                    offer: prodOffer
+                }
+            });
+        } else {
+            navigate('/Login');
+        }  
     }
 
     function truncate(str) {

@@ -41,6 +41,7 @@
 
 .banner__buttons{
     display: flex;
+    justify-content: space-between;
 }
 
 .banner__buttonPrev, .banner__buttonNext{
@@ -60,10 +61,6 @@
     cursor: pointer;
 }
 
-.buttonPrev{
-    opacity: 1;
-}
-
 .banner__buttonPrev{
     margin-left: 2px;
 }
@@ -81,6 +78,17 @@
 
 
 
+@media (max-width: 1480px) and (min-width: 1376px) {
+    .Banner__img{
+        margin-bottom: -295px;
+    }
+}
+
+@media (max-width: 1376px) and (min-width: 1200px) {
+    .Banner__img{
+        margin-bottom: -240px;
+    }
+}
 
 @media (max-width: 1200px) and (min-width: 1079px) {
     .Home--Banner, .Home{

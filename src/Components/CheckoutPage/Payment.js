@@ -87,7 +87,7 @@ function Payment() {
     };
 
 
-    console.log("The Secret key is:", clientSecret);
+    // console.log("The Secret key is:", clientSecret);
 
     return (
         <div className='paymentPage'>

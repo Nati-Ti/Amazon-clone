@@ -1,21 +1,16 @@
-require('dotenv').config();
 // const functions = require('firebase-functions');
 const express = require('express');
 const cors = require('cors');
-
-const stripe = require('stripe')(process.env.SECRET_KEY);
+require('dotenv').config();
 
 
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  credentials: true, 
-};
-
-app.use(cors(corsOptions));
-
+app.use(cors());
 app.use(express.json());
+
+const stripe = require('stripe')(process.env.SECRET_KEY);
+const PORT = process.env.PORT;
 
 
 app.get('/', (request, response) => response.status(200).send('Hello world!'));
@@ -41,12 +36,11 @@ app.post('/payments/create', async (req, res) => {
 });
 
 
-// Listen
-app.listen(10000, (err) => {
+app.listen(PORT, (err) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("app listening");
+      console.log("Server listening");
     }
   });
 

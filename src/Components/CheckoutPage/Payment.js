@@ -35,51 +35,68 @@ function Payment() {
     useEffect(() => {
         // generate the special stripe secret which allows us to charge a customer
         const getClientSecret = async () => {
-            const response = await axios({
-                method: 'post',
-                url: `/payments/create?total=${totalPrice * 100}`,
-            });
-            setClientSecret(response.data.clientSecret);
+            try {
+                const response = await axios.post(
+                    `/payments/create?total=${totalPrice * 100}`
+                );     
+                setClientSecret(response.data.clientSecret);
+            } catch (error) {
+                console.error('Error getting client secret:', error);
+            }
         };
+        
     
         getClientSecret();
     }, [cart]);
+
+    
+    console.log("The Secret key is:", clientSecret);
 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setProcessing(true);
-
-        const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-            card: elements.getElement(CardElement),
-        }})
-        .then(({ error, paymentIntent }) => {
-            // if (error || !paymentIntent) {
-            //     console.log(error);
-            // } else {
-                db.collection('users')
-                  .doc(user?.uid)
-                  .collection('orders')
-                  .doc(paymentIntent.id)
-                  .set({
-                        cart: cart,
-                        amount: paymentIntent.amount,
-                        created: paymentIntent.created,
-                    });
-
-                setSucceeded(true);
-                setError(null);
+    
+        try {
+            const payload = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements.getElement(CardElement),
+                }
+            });
+    
+            if (payload.error || !payload.paymentIntent) {
+                setError(`Payment failed: ${payload.error.message}`);
+                setSucceeded(false);
                 setProcessing(false);
-
-                dispatch({
-                    type: 'EMPTY_CART',
+                return;
+            }
+    
+            db.collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(payload.paymentIntent.id)
+                .set({
+                    cart: cart,
+                    amount: payload.paymentIntent.amount,
+                    created: payload.paymentIntent.created,
                 });
-
-                navigate('/Orders');
-            // }
-        });
+    
+            setSucceeded(true);
+            setError(null);
+            setProcessing(false);
+    
+            dispatch({
+                type: 'EMPTY_CART',
+            });
+    
+            navigate('/Orders');
+        } catch (error) {
+            setError(`Payment failed: ${error.message}`);
+            setSucceeded(false);
+            setProcessing(false);
+        }
     };
+    
 
     const handleChange = (event) => {
         setDisabled(event.empty);
@@ -87,7 +104,6 @@ function Payment() {
     };
 
 
-    // console.log("The Secret key is:", clientSecret);
 
     return (
         <div className='paymentPage'>
@@ -119,7 +135,13 @@ function Payment() {
                     <div className='itemsReview__item'>
                         {cart.map((item)=>{
                             return(
-                                <CartItem prodId={item.id} prodImg={item.image} prodDescr={item.description} prodPrice={item.price} prodRating={item.rating} />
+                                <CartItem 
+                                prodId={item.id} 
+                                prodImg={item.image} 
+                                prodDescr={item.description} 
+                                prodPrice={item.price} 
+                                prodRating={item.rating}
+                                key={item.id} />
                         )})}
                     </div>
                 </div>

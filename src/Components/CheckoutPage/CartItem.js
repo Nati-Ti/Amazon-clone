@@ -50,7 +50,7 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
                 </div>
                 <div className='item__additionals'>
                     {/* <select>Qty: value</select> */}
-                    <div class="custom-select">
+                    <div className="custom-select">
                         
                         <select>
                             <option value="option1">Qty: 1</option>

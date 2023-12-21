@@ -33,6 +33,7 @@
 
 .shoppingCart__deselect:hover{
     font-weight: bold;
+    cursor: pointer;
 }
 
 hr {

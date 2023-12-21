@@ -31,7 +31,7 @@ function Payment() {
 
     const [clientSecret, setClientSecret] = useState(true);
 
-    
+
     useEffect(() => {
         // generate the special stripe secret which allows us to charge a customer
         const getClientSecret = async () => {
@@ -44,14 +44,11 @@ function Payment() {
                 console.error('Error getting client secret:', error);
             }
         };
-        
-        
     
         getClientSecret();
     }, [cart]);
 
     
-    console.log("The Secret key is:", clientSecret);
 
 
     const handleSubmit = async (event) => {

@@ -78,10 +78,11 @@
     margin-left: 30px;
     border-color: #a88734;
     color: #111;
-}
+}     
 
 .addToCart:hover{
     background-color: #F7CA00;
+    cursor: pointer;
     /* transform: scale(1.1);
     transition: 300ms; */
 }

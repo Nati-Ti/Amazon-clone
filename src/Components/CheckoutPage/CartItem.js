@@ -8,6 +8,8 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
     const [isChecked, setIsChecked] = useState(true);
     const [{cart}, dispatch] = useStateValue();
 
+    const [quantity, setQuantity] = useState(1);
+
     const itemRemoved = () =>{
         // setIsChecked(false);
         dispatch({
@@ -51,11 +53,14 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
                 <div className='item__additionals'>
                     {/* <select>Qty: value</select> */}
                     <div className="custom-select">
-                        
+
                         <select>
-                            <option value="option1">Qty: 1</option>
-                            <option value="option2">2</option>
-                            <option value="option3">3</option>
+                            <option value={1}>Qty: 1</option>
+                            <option value={2}
+                            onSelect={() => setQuantity(2)}>2</option>
+                            <option value={3} 
+                            onSelect={() => setQuantity(3)}>3</option>
+                            {/* <option value={4}><input value={quantity} onInput={e => setQuantity(e.target.value)}/>Insert</option> */}
                         </select>
                     </div>
                     <div className='item__add__links'>

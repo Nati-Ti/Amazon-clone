@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+.item__checkBox input:hover {
+    cursor: pointer;
+}
+
 /* #myCheckbox{
 } */
 
@@ -127,6 +131,10 @@
 
 .custom-select select:focus {
     outline: none;
+}
+
+.custom-select select:hover {
+    cursor: pointer;
 }
 
 

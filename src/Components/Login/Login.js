@@ -34,6 +34,16 @@ function Login() {
         .catch((error) => alert(error.message));
     };
 
+    const signInGuest = async (e) =>{
+        e.preventDefault();
+        const guestEmail = 'guest@amazon.com';
+        const guestPassword = 12345678;
+        await signInWithEmailAndPassword(auth, guestEmail, guestPassword)
+        .then((auth) =>{
+            navigate('/');
+        })
+        .catch((error) => alert(error.message));
+    }
 
     return (
         <div className='LoginPage'>
@@ -67,7 +77,7 @@ function Login() {
                         Sign In
                     </button>
                 </form>
-                
+                <p onClick={signInGuest} className='signIn__Guest'>Continue as a Guest</p>
                 <p className='signIn__agreeText'>By continuing, you agree to Amazon's <a href='#'>Conditions of Use</a> and <a href='#'>Privacy Notice</a>.</p>
                 <p className='needHelp_wrap'><ArrowRightIcon  className='needHelp__icon'/><a className='needHelp' href='#'>Need help?</a></p>
             </div>

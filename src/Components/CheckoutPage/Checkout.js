@@ -13,6 +13,7 @@ function Checkout() {
         dispatch({
             type: 'EMPTY_CART'  
         })
+        localStorage.clear();
     }
 
     const totalPrice = cart.reduce((total, item) => {

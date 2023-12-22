@@ -48,12 +48,26 @@
 
 .signIn__button:hover{
     background-color: #F7CA00;
+    cursor: pointer;
 }
 
 .signIn__agreeText{
     font-size: 13.7px;
     margin: 20px 0px 22px;
     font-weight: 400;
+}
+
+.signIn__Guest {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+    color: #0e5ddd;
+    font-weight: 600;
+}
+
+.signIn__Guest:hover {
+    font-size: smaller;
+    cursor: pointer;
 }
 
 .signIn__agreeText a{
@@ -117,4 +131,5 @@
 
 .createAcc__button:hover{
     background-color: #F7FAFA;
+    cursor: pointer;
 }

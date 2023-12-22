@@ -27,6 +27,8 @@ function Orders() {
         } else {
             setOrders([]);
         }
+
+        localStorage.clear();
     }, [user]);
 
     return (

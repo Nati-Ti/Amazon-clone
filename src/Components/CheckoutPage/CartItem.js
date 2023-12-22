@@ -1,25 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './CartItem.css'
 import { useStateValue } from '../Context/stateProvider';
 
 
-function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRating}) {
+function CartItem({removeCheckbox, prodId, quantity, prodImg, prodDescr, prodPrice, prodRating}) {
 
     const [isChecked, setIsChecked] = useState(true);
     const [{cart}, dispatch] = useStateValue();
-    const [ item, setItem] = useStateValue(() => cart.item.id === prodId);
 
-    const [quantity, setQuantity] = useState(1);
-
+    const [selectedQuantity, setSelectedQuantity] = useState(() => {
+      const storedQuantity = localStorage.getItem(`quantity-${prodId}`);
+      return storedQuantity ? parseInt(storedQuantity) : 1;
+    });
+  
     const handleQuantityChange = (event) => {
-        const newQuantity = parseInt(event.target.value);
-        setQuantity(newQuantity);
-
-        dispatch({
-            type: 'UPDATE_QUANTITY',
-            id: prodId,
-            amount: newQuantity,
-        });
+      const newQuantity = parseInt(event.target.value);
+      setSelectedQuantity(newQuantity);
+      localStorage.setItem(`quantity-${prodId}`, newQuantity.toString());
+  
+      dispatch({
+        type: 'UPDATE_QUANTITY',
+        id: prodId,
+        amount: newQuantity,
+      });
     };
 
     const itemRemoved = () =>{
@@ -28,7 +31,17 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
             type: 'REMOVE_ITEM',
             id: prodId,
             });
+      // Clear local storage for the item
+      localStorage.removeItem(`quantity-${prodId}`);
     }
+
+    useEffect(() => {
+      const selectedItem = cart.items?.find((item) => item.id === prodId);
+      if (selectedItem) {
+        setSelectedQuantity(selectedItem.quantity);
+        localStorage.setItem(`quantity-${prodId}`, selectedItem.quantity.toString());
+      }
+    }, [cart.items, prodId]);
 
     return (
         <div className='CartItem'>
@@ -65,26 +78,30 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
                 </div>
                 <div className='item__additionals'>
                     
-                    <div className="custom-select">
+                  <div className="custom-select">
+                    {quantity ? 
+                      <div className='item__quantity'>Qty: {quantity}</div> 
+                      : 
+                      <select 
+                        value={selectedQuantity} 
+                        onChange={handleQuantityChange}>
+                        <option value={1}>Qty: 1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                      </select>
+                    }
+                      
+                    
+                  </div>
 
-                        <select value={item.quantity} 
-                            onChange={handleQuantityChange}>
-                                {/* {(item && item.quantity === 1) ? `Qty: 1` : item.quantity } */}
-                            <option value={1}>Qty: 1 </option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={5}>5</option>
-                            <option value={10}>10</option>
-
-                            {/* <option value={4}><input value={quantity} onInput={e => setQuantity(e.target.value)}/>Insert</option> */}
-                        </select>
-                    </div>
-                    <div className='item__add__links'>
-                        <a href='/Delete'>Delete</a>
-                        <a href='/Saveforlater'>Save for later</a>
-                        <a href='/Compare'>Compare with similar items</a>
-                        <a href='/Share'>Share</a>
-                    </div>
+                  <div className='item__add__links'>
+                      <a href='/Delete'>Delete</a>
+                      <a href='/Saveforlater'>Save for later</a>
+                      <a href='/Compare'>Compare with similar items</a>
+                      <a href='/Share'>Share</a>
+                  </div>
                 </div>            
             </div>
         </div>

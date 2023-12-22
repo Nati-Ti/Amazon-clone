@@ -21,6 +21,7 @@ function OrderProp({order}) {
                         <CartItem 
                         removeCheckbox 
                         prodId={item.id} 
+                        quantity={item.quantity}
                         prodImg={item.image} 
                         prodDescr={item.description} prodPrice={item.price} 
                         prodRating={item.rating} 

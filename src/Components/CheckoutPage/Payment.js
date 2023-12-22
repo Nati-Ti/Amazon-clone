@@ -14,10 +14,6 @@ function Payment() {
 
     const [{cart, user}, dispatch] = useStateValue();
 
-    const totalPrice = cart.reduce((total, item) => {
-        return parseFloat(item.price) + total;
-    }, 0);
-
     const navigate = useNavigate();
 
     const stripe = useStripe();
@@ -32,12 +28,16 @@ function Payment() {
     const [clientSecret, setClientSecret] = useState(true);
 
 
+    const totalPrice = cart.reduce((total, item) => {
+        return (parseFloat(item.price) * parseInt(item.quantity)) + total;
+    }, 0);
+
+
     useEffect(() => {
         // generate the special stripe secret which allows us to charge a customer
         const getClientSecret = async () => {
             try {
                 const response = await axios.post(`/payments/create?total=${totalPrice * 100}`);
-                console.log('Response:', response.data); 
 
                 setClientSecret(response.data.clientSecret);
             } catch (error) {
@@ -47,8 +47,6 @@ function Payment() {
     
         getClientSecret();
     }, [cart]);
-
-    
 
 
     const handleSubmit = async (event) => {
@@ -94,7 +92,6 @@ function Payment() {
             setProcessing(false);
         }
     };
-    
 
     const handleChange = (event) => {
         setDisabled(event.empty);
@@ -107,7 +104,9 @@ function Payment() {
         <div className='paymentPage'>
             <div className='itemsPage__header'>
                 <div className='header__logo'>
+                    <Link to='/'>
                     <img  src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png' alt='amazon logo'/>
+                    </Link>
                 </div>
                 <div className='header__checkout'>
                     Checkout (

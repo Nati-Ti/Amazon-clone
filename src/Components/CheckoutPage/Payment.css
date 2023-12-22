@@ -116,6 +116,7 @@
 
 .payment__detailPrice button:hover{
     background-color: #F7CA00;
+    cursor: pointer;
 }
 
 .errorLog{

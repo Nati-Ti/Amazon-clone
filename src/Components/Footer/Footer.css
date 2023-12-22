@@ -237,6 +237,10 @@ ul{
     margin-top: -1px;
 }
 
+.lang__button:hover, .currency__button:hover, .flag__button:hover{
+    border-color: white;
+}
+
 
 
 

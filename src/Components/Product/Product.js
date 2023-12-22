@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Product.css'
 import { useNavigate } from 'react-router-dom';
 import { useStateValue } from '../Context/stateProvider';
@@ -7,6 +7,7 @@ import { useStateValue } from '../Context/stateProvider';
 function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, prodRating}) {
 
     const [{ cart, user }, dispatch] = useStateValue();
+    const [itemSelected, setItemSelected] = useState(false);
 
     const navigate = useNavigate();
 
@@ -25,10 +26,17 @@ function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, pro
                     offer: prodOffer
                 }
             });
+            // setItemSelected(true);
+            localStorage.setItem(`quantity-${prodId}`, 1);
         } else {
             navigate('/Login');
         }  
     }
+
+    useEffect(() => {
+      const itemAdded = localStorage.getItem(`quantity-${prodId}`);
+      setItemSelected(itemAdded ? true : false);
+    }, [cart]);
 
     function truncate(str) {
         return str?.length > 65 ? str.substr(0, 65) + "..." : str;
@@ -37,6 +45,7 @@ function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, pro
 
     return (
         <div className='Product'>
+          <div className='Product--Wrapper'>
             <img className='Product--Img' src={prodImg} alt={prodDescr}/>
 
             <div className={`Product--Description ${prodDescr.length < 40 ? "Prod--Descr2" : ""}`}>
@@ -61,7 +70,9 @@ function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, pro
                     ${prodPrice}
                 </div>
             </div>
-            <button onClick={addToCart} className='addToCart'>Add to Cart</button>
+          </div>
+
+          <button onClick={addToCart} disabled={itemSelected} className={`addToCart ${itemSelected && 'itemAdded'}`}>{itemSelected ? 'Added!' : 'Add to Cart'}</button>
         </div>
     )
 }

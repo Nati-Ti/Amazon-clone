@@ -21,8 +21,7 @@ function Header() {
     const logOut = async () => {
         await signOut(auth)
         .then(() => {
-            // navigate('/Login');
-            // console.log("Signed out successfully!");
+            navigate('/');
         })
         .catch((error) => {
             console.log(error);
@@ -74,7 +73,7 @@ function Header() {
                 <HeaderProp smallText='Returns' largeText='& Orders' order='Header--textButton__wrapper3'/>
             </Link>
             
-            <Link to='/Checkout' className='Header__shoppingCart' >
+            <Link to={user ? '/Checkout' : '/Login'} className='Header__shoppingCart' >
             
                 <div className='shoppingCart'>
                     <p>{cart.length}</p>

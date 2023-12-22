@@ -7,8 +7,20 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
 
     const [isChecked, setIsChecked] = useState(true);
     const [{cart}, dispatch] = useStateValue();
+    const [ item, setItem] = useStateValue(() => cart.item.id === prodId);
 
     const [quantity, setQuantity] = useState(1);
+
+    const handleQuantityChange = (event) => {
+        const newQuantity = parseInt(event.target.value);
+        setQuantity(newQuantity);
+
+        dispatch({
+            type: 'UPDATE_QUANTITY',
+            id: prodId,
+            amount: newQuantity,
+        });
+    };
 
     const itemRemoved = () =>{
         // setIsChecked(false);
@@ -17,6 +29,7 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
             id: prodId,
             });
     }
+
     return (
         <div className='CartItem'>
 
@@ -51,15 +64,18 @@ function CartItem({removeCheckbox, prodId, prodImg, prodDescr, prodPrice, prodRa
                     <strong>Size: </strong> unknown (Pack of 1)
                 </div>
                 <div className='item__additionals'>
-                    {/* <select>Qty: value</select> */}
+                    
                     <div className="custom-select">
 
-                        <select>
-                            <option value={1}>Qty: 1</option>
-                            <option value={2}
-                            onSelect={() => setQuantity(2)}>2</option>
-                            <option value={3} 
-                            onSelect={() => setQuantity(3)}>3</option>
+                        <select value={item.quantity} 
+                            onChange={handleQuantityChange}>
+                                {/* {(item && item.quantity === 1) ? `Qty: 1` : item.quantity } */}
+                            <option value={1}>Qty: 1 </option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={5}>5</option>
+                            <option value={10}>10</option>
+
                             {/* <option value={4}><input value={quantity} onInput={e => setQuantity(e.target.value)}/>Insert</option> */}
                         </select>
                     </div>

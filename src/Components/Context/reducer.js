@@ -11,6 +11,23 @@ const reducer = (state, action) => {
                 cart: [...state.cart, action.item],
             };
 
+        case 'UPDATE_QUANTITY':
+            const updatedCart = state.cart.map((item) => {
+                if (item.id === action.id) {
+                    return {
+                        ...item,
+                        quantity: action.amount, 
+                    };
+                } else {
+                    return item;
+                }
+            });
+
+            return {
+                ...state,
+                cart: updatedCart,
+            };
+
         case 'REMOVE_ITEM':
             const index = state.cart.findIndex(
                 (cartItem) => cartItem?.id === action?.id

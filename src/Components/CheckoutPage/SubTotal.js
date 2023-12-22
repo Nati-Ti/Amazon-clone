@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function SubTotal() {
     const [{cart}, dispatch] = useStateValue();
     const totalPrice = cart.reduce((total, item) => {
-        return parseFloat(item.price) + total;
+        return (parseFloat(item.price) * parseInt(item.quantity)) + total;
     }, 0);
     return (
         <div className='Subtotal'>

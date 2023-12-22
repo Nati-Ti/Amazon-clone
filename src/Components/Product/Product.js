@@ -19,6 +19,7 @@ function Product({prodId, prodImg, prodDescr, prodOffer, prodPrice,prodView, pro
                     image: prodImg,
                     description: prodDescr,
                     rating: prodRating,
+                    quantity: 1, 
                     price: prodPrice,
                     view: prodView,
                     offer: prodOffer
